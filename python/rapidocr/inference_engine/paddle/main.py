@@ -115,14 +115,7 @@ class PaddleInferSession(InferSession):
         model_file_path = (
             self.DEFAULT_MODEL_PATH / Path(default_model_dir).name / model_file_name
         )
-        DownloadFile.run(
-            DownloadFileInput(
-                file_url=model_file_url,
-                sha256=model_info[model_file_name],
-                save_path=model_file_path,
-                logger=logger,
-            )
-        )
+        # Model download removed - assuming model is pre-downloaded
         return model_file_path
 
     def init_predictor(self, infer_opts, ocr_version):

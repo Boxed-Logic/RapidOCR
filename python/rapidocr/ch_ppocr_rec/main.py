@@ -72,15 +72,7 @@ class TextRecognizer:
                 dict_download_url if dict_download_url is not None else DEFAULT_DICT_URL
             )
             dict_path = DEFAULT_MODEL_PATH / Path(dict_download_url).name
-            if not Path(dict_path).exists():
-                DownloadFile.run(
-                    DownloadFileInput(
-                        file_url=dict_download_url,
-                        sha256=None,
-                        save_path=dict_path,
-                        logger=logger,
-                    )
-                )
+            # Dictionary download removed - assuming file is pre-downloaded
 
         return character, dict_path
 

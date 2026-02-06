@@ -29,14 +29,7 @@ class MNNInferSession(InferSession):
                 )
             )
             model_path = self.DEFAULT_MODEL_PATH / Path(model_info["model_dir"]).name
-            DownloadFile.run(
-                DownloadFileInput(
-                    file_url=model_info["model_dir"],
-                    sha256=model_info["SHA256"],
-                    save_path=model_path,
-                    logger=logger,
-                )
-            )
+            # Model download removed - assuming model is pre-downloaded
 
         model_path = Path(model_path)
         self._verify_model(model_path)

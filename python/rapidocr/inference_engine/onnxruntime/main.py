@@ -42,13 +42,7 @@ class OrtInferSession(InferSession):
                 )
             )
             model_path = self.DEFAULT_MODEL_PATH / Path(model_info["model_dir"]).name
-            download_params = DownloadFileInput(
-                file_url=model_info["model_dir"],
-                sha256=model_info["SHA256"],
-                save_path=model_path,
-                logger=logger,
-            )
-            DownloadFile.run(download_params)
+            # Model download removed - assuming model is pre-downloaded
 
         logger.info(f"Using {model_path}")
         model_path = Path(model_path)
